@@ -11,6 +11,6 @@ PATCHDIR=$1
 
 ls -1 "$PATCHDIR"/*.patch | while read i; do
     echo "$i"
-    git am "$PATCHDIR/$i" || { git am --abort && break; }
-    mv "$PATCHDIR/$i" "$PATCHDIR/done"
+    git am "$i" || { git am --abort && break; }
+    mv "$i" "$PATCHDIR/done/"
 done
